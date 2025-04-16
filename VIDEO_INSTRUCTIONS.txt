@@ -1,0 +1,12 @@
+INSTRUCTIONS FOR ADDING VIDEO
+
+1. Add your "Paradisio - Bailando" music video file to this folder
+2. Rename the file to "bailando.mp4"
+3. Make sure the file is in MP4 format for best compatibility
+4. Open index.html in your browser to experience the website
+
+Note: For the music reactivity to work properly, the video should have clear bass beats.
+The website uses the Web Audio API to analyze the audio from the video and create
+visual effects that sync with the music.
+
+Enjoy!
