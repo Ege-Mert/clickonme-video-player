@@ -26,7 +26,7 @@ body {
 }
 
 #playButton {
-    background-color: #00a2ff; /* Bright blue to be intriguing */
+    background-color: #ff0088; /* Pink color for "Touch Me" */
     color: white;
     border: none;
     padding: 20px 40px;
@@ -34,7 +34,7 @@ body {
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.4s ease;
-    box-shadow: 0 0 30px rgba(0, 162, 255, 0.6); /* Blue glow effect */
+    box-shadow: 0 0 30px rgba(255, 0, 136, 0.6); /* Pink glow effect */
     font-weight: bold;
     text-shadow: 0 0 10px #fff; /* Text glow effect */
     letter-spacing: 2px;
@@ -57,7 +57,7 @@ body {
 
 #playButton:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 50px rgba(0, 162, 255, 0.8);
+    box-shadow: 0 0 50px rgba(255, 0, 136, 0.8);
 }
 
 #playButton:hover:before {
@@ -86,28 +86,14 @@ body {
     height: 85%;
     position: relative;
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: transform 0.1s ease;
 }
 
 #musicVideo {
     width: 100%;
     height: 100%;
     object-fit: contain; /* Ensures the video keeps its aspect ratio */
-    transition: transform 0.2s ease;
-}
-
-.react-bass {
-    transform: scale(1.03); /* Zoom in slightly on bass hits */
-}
-
-.react-mid {
-    animation: flash 0.3s ease;
-}
-
-@keyframes flash {
-    0% { filter: brightness(1); }
-    50% { filter: brightness(1.5); }
-    100% { filter: brightness(1); }
+    transition: transform 0.1s ease;
 }
 
 .hidden {
@@ -122,25 +108,4 @@ body {
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
-}
-
-/* Animations for reactive video */
-@keyframes pulse-bass {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
-}
-
-@keyframes rotate-mid {
-    0% { transform: rotate(0deg); }
-    50% { transform: rotate(1deg); }
-    100% { transform: rotate(0deg); }
-}
-
-@keyframes shake-high {
-    0% { transform: translate(0, 0); }
-    25% { transform: translate(2px, 2px); }
-    50% { transform: translate(-2px, -2px); }
-    75% { transform: translate(-2px, 2px); }
-    100% { transform: translate(0, 0); }
 }
