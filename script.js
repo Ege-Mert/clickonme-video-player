@@ -12,24 +12,24 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Beat detection variables
     let beatDetector = {
-        threshold: 0.15,  // Adjust sensitivity
+        threshold: 0.12,  // Lowered threshold to detect more beats
         decay: 0.98,      // How quickly the beat detection resets
         current: 0,
         peak: 0
     };
     
-    // Mid frequency detection
+    // Mid frequency detection - reduced role
     let midDetector = {
-        threshold: 0.12,
-        decay: 0.96,
+        threshold: 0.15,  // Increased threshold to reduce effect
+        decay: 0.97,
         current: 0,
         peak: 0
     };
     
-    // High frequency detection
+    // High frequency detection - reduced role
     let highDetector = {
-        threshold: 0.10,
-        decay: 0.95,
+        threshold: 0.15,  // Increased threshold to reduce effect
+        decay: 0.97,
         current: 0,
         peak: 0
     };
@@ -153,24 +153,24 @@ document.addEventListener('DOMContentLoaded', () => {
         let videoTransform = '';
         let wrapperTransform = '';
         
-        // Apply bass effect (scaling)
+        // Apply bass effect (scaling) - more prominent
         if (beatDetector.current > beatDetector.threshold) {
-            // Calculate scale factor based on how much above threshold
-            const scaleFactor = 1 + (beatDetector.current - beatDetector.threshold) * 0.15;
+            // Calculate scale factor - more subtle scaling (0.08 instead of 0.15)
+            const scaleFactor = 1 + (beatDetector.current - beatDetector.threshold) * 0.08;
             videoTransform += ` scale(${scaleFactor})`;
         }
         
-        // Apply mid frequency effect (slight rotation for movement)
+        // Apply mid frequency effect - much more subtle rotation
         if (midDetector.current > midDetector.threshold) {
-            // Add a slight rotate effect
-            const rotateAngle = (midDetector.current - midDetector.threshold) * 1.5;
+            // Reduced rotation amount
+            const rotateAngle = (midDetector.current - midDetector.threshold) * 0.5; // Reduced from 1.5 to 0.5
             wrapperTransform += ` rotate(${rotateAngle}deg)`;
         }
         
-        // Apply high frequency effect (small movement)
+        // Apply high frequency effect - minimal movement
         if (highDetector.current > highDetector.threshold) {
-            // Calculate translation amount
-            const translateAmount = (highDetector.current - highDetector.threshold) * 10;
+            // Reduced translation amount
+            const translateAmount = (highDetector.current - highDetector.threshold) * 3; // Reduced from 10 to 3
             const translateX = (Math.random() * 2 - 1) * translateAmount;
             const translateY = (Math.random() * 2 - 1) * translateAmount;
             
