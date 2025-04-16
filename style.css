@@ -76,47 +76,38 @@ body {
     height: 100%;
     background-color: #000;
     z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#videoWrapper {
+    width: 85%; /* Creates padding on all sides */
+    height: 85%;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
 }
 
 #musicVideo {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Ensures the video fits perfectly */
+    object-fit: contain; /* Ensures the video keeps its aspect ratio */
+    transition: transform 0.2s ease;
 }
 
-#visualizer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 3;
-    pointer-events: none;
-    opacity: 0.7;
+.react-bass {
+    transform: scale(1.03); /* Zoom in slightly on bass hits */
 }
 
-.music-reactive-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 4;
-    pointer-events: none;
-    background: radial-gradient(circle, transparent 50%, rgba(0, 162, 255, 0.2) 100%);
-    mix-blend-mode: overlay;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+.react-mid {
+    animation: flash 0.3s ease;
 }
 
-.react {
-    animation: pulse-react 0.5s ease;
-}
-
-@keyframes pulse-react {
-    0% { opacity: 0; }
-    50% { opacity: 0.8; }
-    100% { opacity: 0; }
+@keyframes flash {
+    0% { filter: brightness(1); }
+    50% { filter: brightness(1.5); }
+    100% { filter: brightness(1); }
 }
 
 .hidden {
@@ -124,11 +115,32 @@ body {
 }
 
 .visible {
-    display: block !important;
+    display: flex !important;
     animation: fadeIn 0.5s ease;
 }
 
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
+}
+
+/* Animations for reactive video */
+@keyframes pulse-bass {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes rotate-mid {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(1deg); }
+    100% { transform: rotate(0deg); }
+}
+
+@keyframes shake-high {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(2px, 2px); }
+    50% { transform: translate(-2px, -2px); }
+    75% { transform: translate(-2px, 2px); }
+    100% { transform: translate(0, 0); }
 }
