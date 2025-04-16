@@ -5,8 +5,20 @@ INSTRUCTIONS FOR ADDING VIDEO
 3. Make sure the file is in MP4 format for best compatibility
 4. Open index.html in your browser to experience the website
 
-Note: For the music reactivity to work properly, the video should have clear bass beats.
-The website uses the Web Audio API to analyze the audio from the video and create
-visual effects that sync with the music.
+About the Reactive Video:
+- The video will react to the music by pulsing, rotating, and changing brightness
+- There's a 15% padding around the video so it remains fully visible during effects
+- Bass beats will make the video pulse/zoom
+- Mid frequencies will adjust brightness and add slight rotation
+- High frequencies will add subtle vibration/shake
 
-Enjoy!
+The effects are designed to enhance the viewing experience without being too distracting.
+You can adjust the sensitivity in script.js by modifying the threshold values:
+
+- beatDetector.threshold: controls bass sensitivity (default: 0.15)
+- midDetector.threshold: controls mid-range sensitivity (default: 0.12)
+- highDetector.threshold: controls high frequency sensitivity (default: 0.10)
+
+Lower values = more sensitive (more effects), higher values = less sensitive (fewer effects)
+
+Enjoy the music-reactive experience!
