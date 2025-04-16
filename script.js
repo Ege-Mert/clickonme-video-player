@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Beat detection variables
     let beatDetector = {
-        threshold: 0.12,  // Lowered threshold to detect more beats
+        threshold: 0.10,  // Lower threshold to detect more beats
         decay: 0.98,      // How quickly the beat detection resets
         current: 0,
         peak: 0
@@ -153,24 +153,25 @@ document.addEventListener('DOMContentLoaded', () => {
         let videoTransform = '';
         let wrapperTransform = '';
         
-        // Apply bass effect (scaling) - more prominent
+        // Apply bass effect (scaling) - DRAMATICALLY increased
         if (beatDetector.current > beatDetector.threshold) {
-            // Calculate scale factor - more subtle scaling (0.08 instead of 0.15)
-            const scaleFactor = 1 + (beatDetector.current - beatDetector.threshold) * 0.08;
+            // Calculate scale factor - much more dramatic (2.0 instead of 0.08)
+            // This will scale from 1.0 to 3.0 times the original size depending on beat strength
+            const scaleFactor = 1 + (beatDetector.current - beatDetector.threshold) * 2.0;
             videoTransform += ` scale(${scaleFactor})`;
         }
         
-        // Apply mid frequency effect - much more subtle rotation
+        // Apply mid frequency effect - kept minimal
         if (midDetector.current > midDetector.threshold) {
             // Reduced rotation amount
-            const rotateAngle = (midDetector.current - midDetector.threshold) * 0.5; // Reduced from 1.5 to 0.5
+            const rotateAngle = (midDetector.current - midDetector.threshold) * 0.5;
             wrapperTransform += ` rotate(${rotateAngle}deg)`;
         }
         
-        // Apply high frequency effect - minimal movement
+        // Apply high frequency effect - kept minimal
         if (highDetector.current > highDetector.threshold) {
             // Reduced translation amount
-            const translateAmount = (highDetector.current - highDetector.threshold) * 3; // Reduced from 10 to 3
+            const translateAmount = (highDetector.current - highDetector.threshold) * 3;
             const translateX = (Math.random() * 2 - 1) * translateAmount;
             const translateY = (Math.random() * 2 - 1) * translateAmount;
             
