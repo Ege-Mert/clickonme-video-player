@@ -5,14 +5,14 @@ INSTRUCTIONS FOR ADDING VIDEO
 3. Make sure the file is in MP4 format for best compatibility
 4. Open index.html in your browser to experience the website
 
-About the Reactive Video:
-- The video will react to the music by pulsing, rotating, and changing brightness
-- There's a 15% padding around the video so it remains fully visible during effects
-- Bass beats will make the video pulse/zoom
-- Mid frequencies will adjust brightness and add slight rotation
-- High frequencies will add subtle vibration/shake
+About the Scale-Reactive Video:
+- The video will react to the music by scaling, rotating, and moving
+- There's a 15% padding around the video so it remains fully visible during scaling effects
+- Bass beats will make the video pulse/scale up and down
+- Mid frequencies will add slight rotation for a dynamic feel
+- High frequencies will add subtle movement
 
-The effects are designed to enhance the viewing experience without being too distracting.
+The reactivity focuses exclusively on scaling and movement effects without any color or filter changes.
 You can adjust the sensitivity in script.js by modifying the threshold values:
 
 - beatDetector.threshold: controls bass sensitivity (default: 0.15)
@@ -21,4 +21,9 @@ You can adjust the sensitivity in script.js by modifying the threshold values:
 
 Lower values = more sensitive (more effects), higher values = less sensitive (fewer effects)
 
-Enjoy the music-reactive experience!
+You can also adjust the scale factor in the applyVideoScalingEffects function:
+- For stronger scaling effects: increase the multiplier (0.15) in this line:
+  "const scaleFactor = 1 + (beatDetector.current - beatDetector.threshold) * 0.15;"
+- For more subtle scaling effects: decrease this multiplier
+
+Enjoy your scale-reactive music video experience!
