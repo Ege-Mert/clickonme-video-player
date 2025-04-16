@@ -82,10 +82,10 @@ body {
 }
 
 #videoWrapper {
-    width: 80%; /* Increased padding on all sides */
-    height: 80%;
+    width: 30%; /* Much smaller initial size to accommodate huge scaling */
+    height: 30%;
     position: relative;
-    overflow: visible; /* Changed from hidden to visible to prevent cropping */
+    overflow: visible; /* Important: keeps video from being cropped when scaled */
     transition: transform 0.2s ease;
 }
 
